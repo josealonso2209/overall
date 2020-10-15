@@ -1,0 +1,83 @@
+body{
+	background: url(../img/decarga2.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.main-section{
+	margin: 0 auto;
+	margin-top: 25%;
+	padding: 0;
+}
+
+.user-img{
+	margin-top: -50px;
+	margin-bottom: 35px;
+}
+
+.user-img img{
+	width: 150px;
+    height: 150px;
+	box-shadow: 3px 2px 3px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-group input{
+	height: 42px;
+	font-size: 18px;
+	border: 0;
+	padding-left: 54px;
+	border-radius: 5px;
+}
+
+.form-group::before{
+	font-family: "Font Awesome\ 5 Free";
+	position: absolute;
+	left: 28px;
+	font-size: 22px;
+	padding-top: 4px;
+}
+
+.form-group#user-group::before{
+	content: "\f007";
+}
+
+.form-group#contrasena-group::before{
+	content: "\f023";
+}
+
+button{
+	width: 60%;
+	margin: 5px 0 25px;
+}
+
+.forgot{
+	padding: 15px 15px;
+}
+
+.forgot a {
+	color: white;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column; 
+	justify-content: center;
+	width: 100%;
+	min-height: 100%;
+	opacity: .85;
+	padding-top: 150px;
+  }
+
+.card {
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	background: #F17E2A;
+	padding: 30px;
+	width: 50%;
+	max-width: 350px;
+	position: relative;
+	padding: 0px;
+	-webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+	box-shadow: 3px 2px 3px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1) !important;
+	text-align: center;
+}

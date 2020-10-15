@@ -1,0 +1,1 @@
+INSERT INTO `overalldb`.`users` (`id`, `identification`, `name`, `email`, `password`, `created_at`, `cellphone`, `tipo_user_id`) VALUES ('1', '1082944114', 'JOSE LUIS ALONSO MERCADO', 'josealonso-22@hotmail.com', '123456', '2020-10-14 23:55:00', '11111111', '1');
