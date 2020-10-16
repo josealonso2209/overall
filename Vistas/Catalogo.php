@@ -7,85 +7,79 @@ $lista = $_SESSION['lista'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Catalogo</title>
 </head>
 <body style="background: url(../img/decarga2.png) no-repeat center center fixed;">
 
-<div class="container">
+<div class="container-fluid">
+  <?php include "encabezado.php"; ?>
 
-<?php include "encabezado.php"; ?>
-
-<!-- Inicio del carousel -->
-
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../img/prod1.jpg" width="200" height="380" class="d-block w-100" alt="...">
+  <!-- Inicio del carousel -->
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/prod1.jpg" width="200" height="380" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/prod2.jpg" width="200" height="380" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/prod3.jpg" width="200" height="380" class="d-block w-100" alt="...">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="../img/prod2.jpg" width="200" height="380" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="../img/prod3.jpg" width="200" height="380" class="d-block w-100" alt="...">
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <!-- fin del carousel -->
+
+  <!-- Columna 1-->
+  <div class="container-fluid">
+    <div class="col-6 col-md-12 " style="margin:0px;background: #F9F9F9;padding: 10px 20px;border-radius: 5px;">
+
+      <h2 align="center">CATALOGOS DE PRODUCTOS</h2>
+      <table border= "0" width="700" align="center" class="table">
+        <tr align="center">
+        <?php
+        $num =0;
+        if (is_array($lista)) {
+          foreach ($lista as $reg) {
+            if ($num == 3) {
+                echo "<tr align='center'>";
+                $num=1;
+            } else{
+                $num++;
+            }
+          
+            ?>
+            <th><img src="data:image/png;base64,<?php echo base64_encode( $reg[8] );?>">
+            <br><br>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="enviar(<?php echo $reg[0];?>)" >Agregar</button>
+            </th>
+            
+          
+          <?php
+          }
+        }else {
+          echo "Desafortunadamente, ocurrio un error";
+        }
+        ?>
+      </table>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
-
-
-<!-- fin del carousel -->
-
-            <!-- Columna 1-->
-            <div class="col-6 col-md-12 " style="margin:0px;background: #F9F9F9;padding: 10px 20px;border-radius: 5px;">
-
-<h2 align="center">CATALOGOS DE PRODUCTOS</h2>
-<table border= "0" width="700" align="center" class="table">
-  <tr align="center">
-<?php
-$num =0;
-if (is_array($lista)) {
-  foreach ($lista as $reg) {
-
-    if ($num == 3) {
-        echo "<tr align='center'>";
-        $num=1;
-    } else{
-        $num++;
-    }
-  
-    ?>
-    <th><img src="data:image/png;base64,<?php echo base64_encode( $reg[8] );?>">
-     <br><br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="enviar(<?php echo $reg[0];?>)" >Agregar</button>
-    </th>
-    
-  
-  <?php
-   }
-  }else {
-    echo "Desafortunadamente, ocurrio un error";
-  }
-  ?>
-
-</table>
-
-            </div>
-
-</div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,8 +101,9 @@ if (is_array($lista)) {
     </div>
   </div>
 </div>
-
 <!-- fin de Modal -->
+
+<?php include '../Vistas/footer.php';?>
 
 <script>
 
